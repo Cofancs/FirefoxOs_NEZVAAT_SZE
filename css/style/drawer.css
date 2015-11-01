@@ -1,0 +1,290 @@
+/* ----------------------------------
+* Drawer
+* ---------------------------------- */
+
+html, body {
+      margin: 0;
+      padding: 0;
+      font-size: 10px;
+      background-color: #fff;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    h2.bb-docs {
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: #666;
+      margin: -0.1rem 0 0;
+      background-color: #f5f5f5;
+      padding: 0.4rem 0.4rem 0.4rem 3rem;
+      border: solid 0.1rem #e8e8e8;
+    }
+/* Main region */
+section[role="region"] {
+  width: 100%;
+  transition: all 0.25s ease;
+  position: relative;
+  z-index: 100;
+}
+
+section[role="region"]:target {
+  transform: translateX(80%);
+}
+
+/* Hide anchor to change target */
+section[role="region"] > header:first-child > a:first-of-type {
+  display: none;
+}
+section[role="region"]:target > header:first-child > a:first-of-type {
+  display: block;
+}
+section[role="region"] > header:first-child > a:last-of-type {
+  display: block;
+}
+section[role="region"]:target > header:first-child > a:last-of-type {
+  display: none;
+}
+
+
+/* Sidebar */
+section[data-type="sidebar"] {
+  position: absolute;
+  width: 80%;
+  background: url(drawer/images/ui/pattern.png) repeat;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+/* Sidebar header */
+section[data-type="sidebar"] > header {
+  position: relative;
+  z-index: 10;
+  height: 5rem;
+  color: #fff;
+  background: url(drawer/images/ui/header.png) repeat-x left bottom / 100% auto;
+}
+
+section[data-type="sidebar"] > header:after {
+  content: "";
+  height: 0.3rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: url(drawer/images/ui/shadow_header.png) repeat-x left top;
+  background-size: auto 100%;
+}
+
+section[data-type="sidebar"] > header h1 {
+  font-size: 2.2rem;
+  line-height: 4.8rem;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+  margin: 0 0 0 3rem;
+  height: 100%
+}
+
+section[data-type="sidebar"] > header h1 em {
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1em;
+}
+
+/* Generic set of actions in toolbar */
+section[data-type="sidebar"] > header menu[type="toolbar"] {
+  height: 100%;
+  float: right;
+}
+
+section[data-type="sidebar"] > header menu[type="toolbar"] a,
+section[data-type="sidebar"] > header menu[type="toolbar"] button {
+  height: 4.9rem;
+  line-height: 4.9rem;
+  float: left;
+  background: none;
+  padding: 0 1.75rem;
+  -moz-box-sizing: border-box;
+  min-width: 5rem;
+  text-align: center;
+}
+
+section[data-type="sidebar"] > header menu[type="toolbar"] a:last-child,
+section[data-type="sidebar"] > header menu[type="toolbar"] button:last-child {
+  background: url(drawer/images/ui/separator.png) no-repeat left center / auto 3.1rem;
+}
+
+section[data-type="sidebar"] > header menu[type="toolbar"] {
+  padding: 0;
+  margin: 0;
+}
+
+section[data-type="sidebar"] > header a,
+section[data-type="sidebar"] > header button {
+  border: none;
+  background: none;
+  padding: 0;
+  overflow: hidden;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.1em;
+  color: #fff;
+}
+
+section[data-type="sidebar"] > header a:first-letter,
+section[data-type="sidebar"] > header button:first-letter {
+  text-transform: uppercase;
+}
+
+/* Icon definitions */
+section[data-type="sidebar"] > header .icon {
+  display: inline-block;
+  width: 3rem;
+  height: 4.9rem;
+  margin: 0 -1rem;
+  background: transparent no-repeat center center / 100% auto;
+  font-size: 0;
+  overflow: hidden;
+  position: relative;
+}
+ section[data-type="sidebar"] > header .icon.icon-add {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4RTlFMTExOTIwMjA2ODExODIyQUJFQTc4MUU4NEEyOSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpENjM1MzgyMUJGNzAxMUUxQkNDOEUwRkExQ0U5N0Q0QiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpENjM1MzgyMEJGNzAxMUUxQkNDOEUwRkExQ0U5N0Q0QiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Mzk0RjYxOUMzMTIwNjgxMTgyMkFBRjgxQ0IyNTAxM0UiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OEU5RTExMTkyMDIwNjgxMTgyMkFCRUE3ODFFODRBMjkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz45ZU6fAAAAiklEQVR42mL8//8/w0AAJoYBAqMW0w2wkKmPH4hVoOw7QPyRVAMYyUzVD4FYDsq+DMR6o3E8avGoxbiykxAQ78KjTxeI2aDs70B8DY9aZ2z5HJfFIIMvUclzGkB8c9AXmU+B+CyVgvrFaJE5avGoxQNSZBICzEBsAGVfAOK/9LJ4NI5HLSYIAAIMAKfZJ7+0GO5HAAAAAElFTkSuQmCC);
+    }
+
+section[data-type="sidebar"]:after {
+  content: "";
+  width: 1rem;
+  background: url(drawer/images/ui/shadow.png) right top repeat-y;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+}
+
+section[data-type="sidebar"] > nav {
+  overflow-y: auto;
+  max-height: 100%;
+  margin-right: -0.8rem;
+}
+
+section[data-type="sidebar"] > nav > h2 {
+  font-weight: bold;
+  font-size: 1.4rem;
+  line-height: 3.3rem;
+  text-indent: 3rem;
+  color: #fff;
+  background: url(drawer/images/ui/pattern_subheader.png) repeat left top;
+  border-bottom: 0.1rem solid #596068;
+  margin: 0;
+  padding-right: 0.8rem;
+}
+
+section[data-type="sidebar"] [role="toolbar"] {
+  position: absolute;
+}
+
+section[data-type="sidebar"] > nav > ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+section[data-type="sidebar"] > nav > ul > li {
+  color: #fff;
+  list-style: none;
+  transition: background 0.2s ease;
+}
+
+section[data-type="sidebar"] > nav > ul > li:active {
+  background: #00ABCC;
+}
+
+section[data-type="sidebar"] > nav > ul > li > a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 4.35rem;
+  border-bottom: 0.1rem solid #596068;
+  text-indent: 3rem;
+  padding-right: 0.8rem;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* RTL View */
+
+html[dir="rtl"] section[role="region"]:target {
+  transform: translateX(-80%);
+}
+
+/* Sidebar */
+html[dir="rtl"] section[data-type="sidebar"] {
+  left: auto;
+  right: 0;
+}
+
+/* Sidebar header */
+html[dir="rtl"] section[data-type="sidebar"] > header {
+  background-position: right bottom;
+}
+
+html[dir="rtl"] section[data-type="sidebar"] > header:after {
+  background-position: right top;
+}
+
+html[dir="rtl"] section[data-type="sidebar"] > header h1 {
+  text-align: right;
+  margin: 0 3rem 0 0;
+}
+
+/* Generic set of actions in toolbar */
+html[dir="rtl"] section[data-type="sidebar"] > header menu[type="toolbar"] {
+  float: left;
+}
+
+html[dir="rtl"] section[data-type="sidebar"] > header menu[type="toolbar"] a,
+html[dir="rtl"] section[data-type="sidebar"] > header menu[type="toolbar"] button {
+  float: left;
+}
+
+html[dir="rtl"] section[data-type="sidebar"] > header menu[type="toolbar"] a:last-child,
+html[dir="rtl"] section[data-type="sidebar"] > header menu[type="toolbar"] button:last-child {
+  background-position: right center;
+}
+
+html[dir="rtl"] section[data-type="sidebar"]:after {
+  background-image: url(drawer/images/ui/shadow_rtl.png);
+  background-position: left top;
+  left: 0;
+  right: auto;
+}
+html[dir="rtl"] section[data-type="sidebar"] > nav > h2 {
+  background-position: right top;
+  padding-left: 0.8rem;
+  padding-right: unset;
+}
+section[role="region"] {
+      height: 100%;
+      line-height: 1em;
+      font-size: 2.2rem;
+    }
+
+    div[role="main"] {
+      background: #fff;
+      height: calc(100% - 5rem);
+      overflow: hidden;
+    }
+
+    div[role="main"] p {
+      margin: 2rem 2.5rem;
+    }
