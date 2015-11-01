@@ -1,18 +1,49 @@
-html, body {
-  margin: 0;
-  padding: 0.5rem;
+html,body{
+        margin: 0;
+        height: 85% ;
 }
-
 body {
   font-size: 1rem;
   background: #fff;
 }
 
 h1 {
-  margin: 0 0 1rem 0;
+  margin: 0.5rem 0.5rem 1rem 0.5rem;
 }
 
 p {
   font-size: inherit;
+  margin: 1rem 1rem 1rem 1rem;
 }
+section{
+    display: block;
+}
+#topbox{
+    position: fixed;
+    height: 3rem;
+    margin: 1rem;
+}
+#leftbox{
+    position:absolute; 
+    float:left;
+    //padding: 0.2rem;
+    background-color: aquamarine;
+    border: 2px solid grey;
+    width:45%;
+    height: inherit;
+    //margin: 0;
+    text-align: left;
 
+}
+#menu_field{
+    text-orientation:  upright;
+}
+#rightbox{
+    position: relative;
+    float: right;
+    border:2px solid blue;
+}
+#menu_icon{
+    height: 3rem;
+    width: 3rem;
+}

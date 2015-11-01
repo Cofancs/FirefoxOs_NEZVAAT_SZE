@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "name": "Memoriter",
-  "description": "A template with the bare minimum structure",
+  "description": "Poet learning application for FirefoxOS",
   "launch_path": "/index.html",
   "icons": {
     "16": "/img/icons/icon16x16.png",
@@ -10,8 +10,8 @@
     "128": "/img/icons/icon128x128.png"
   },
   "developer": {
-    "name": "Your name",
-    "url": "http://example.com"
+    "name": "Cofancs",
+    "url": "http://cofancs.me"
   },
   "type": "privileged",
   "permissions": {},
@@ -19,9 +19,9 @@
     "*"
   ],
   "locales": {
-    "es": {
-      "name": "Aplicación vacía privilegiada",
-      "description": "Una plantilla con la mínima estructura",
+    "hu": {
+      "name": "Memoriter",
+      "description": "Vers tanulást segítő alkalmazás",
       "permissions": {}
     }
   },
