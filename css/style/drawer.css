@@ -288,3 +288,10 @@ section[role="region"] {
     div[role="main"] p {
       margin: 2rem 2.5rem;
     }
+    div[role="main"] li{
+        margin: 2rem;
+        font-size: 2rem;
+    }
+    div[role="main"] font {
+        font-size: 1.5rem;
+    }
