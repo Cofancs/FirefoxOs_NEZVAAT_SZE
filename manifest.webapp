@@ -13,10 +13,24 @@
     "url": "http://cofancs.me"
   },
   "type": "privileged",
-  "permissions": {},
+  "permissions": {
+    "audio-capture": {
+      "description": "Needed for capturing audio"
+    },
+ "device-storage:pictures": {
+      "description": "Required for saving pictures",
+      "access": "readwrite"
+    },
+    "device-storage:sdcard": {
+      "description": "Required for saving to sdcard",
+      "access": "readwrite"
+    }
+  },
   "installs_allowed_from": [
     "*"
   ],
+"orientation": [ "portrait-primary" ],
+
   "locales": {
     "hu": {
       "name": "Memoriter",

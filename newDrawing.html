@@ -1,16 +1,151 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/grid.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/slider.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/seekbars.css" rel="stylesheet">
+
+<link href="css/style/headers.css" rel="stylesheet" type="text/css">
+        <link href="css/style/drawer.css" rel="stylesheet" type="text/css">
+        <link href="css/style/lists.css" rel="stylesheet" type="text/css">
+    <title>Drawing</title>
+
+    <script type="text/javascript" src="js/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/js/app.js"></script>
+    <link rel="prefetch" type="application/l10n" href="data/locales.ini" />
+        <script type="text/javascript" src="js/libs/l10n.js" defer></script>
+    
+</head>
+
+<body>
+    <section role="region" >
+    <header>
+    <a href="index.html"><span class="icon icon-back">back</span></a>
+    <h1 id='title'>Drawing</h1>
+  </header>
+	<div id="intro-screen" class="page">
+    <div class="main-text">
+         
+          <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-start" data-l10n-id="start-button">Start</button>
+    </div>
+  </div>
+
+
+  <div id="container">
+
+      <div id="top">
+        <canvas id="sketchpad">
+          Sorry, your browser is not supported.
+        </canvas>
+      </div>
+
+      <footer id="footer">
+        <nav id="maintoolbar" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+          <div class="col-xs-9">
+            <button type="button" class="btn btn-xs" id="btn-pencil"><!-- <img src="images/btns/btn-brush.png"> --></button>
+            <button type="button" class="btn btn-xs" id="btn-eraser"><img src="images/btns/btn-eraser.png"></button>
+            <!-- <button type="button" class="btn btn-default"id="spraycan">Spray</button> -->
+            <button type="button" class="btn btn-xs" id="btn-colorpicker"><img src="images/btns/btn-palette.png"></button>
+            <button type="button" class="btn btn-xs" id="btn-brushsize"><img src="images/btns/btn-styles.png"></button>
+            <button type="button" class="btn btn-xs" id="btn-undo"><img src="images/btns/btn-undo.png"></button>
+          </div>
+          <div class="col-xs-3">
+            <button type="button" class="btn btn-xs pull-right" id="btn-done"><img src="images/btns/btn-done.png"></button>
+          </div>
+        </nav>
+
+        <div id="done-panel" class="panel panel-default">
+          <div class="panel-body">
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="addDrawing" data-l10n-id="save-button">Save to Gallery</button>
+            <button type="button" class="btn btn-default btn-lg btn-block" id="btn-new" data-l10n-id="clear-button">Clear</button>
+            
+          </div>
+        </div>
+
+        <div class="toolbar" id="colorpicker">
+            <div class="col-xs-12">
+              <button class="btn btn-default" id="color-zero"></button>
+              <button class="btn btn-default" id="color-one"></button>
+              <button class="btn btn-default" id="color-two"></button>
+              <button class="btn btn-default" id="color-three"></button>
+              <button class="btn btn-default" id="color-four"></button>
+              <button class="btn btn-default" id="color-five"></button>
+              <!-- <button class="btn btn-default" id="color-six"></button> -->
+              <!-- <button class="btn btn-default" id="color-seven"></button> -->
+            </div>
+        </div>
+
+        <!-- Brush adjustments -->
+        <div class="toolbar" id="brushsize">
+            <div class="col-xs-12">
+              <!-- <p>Brush size</p> -->
+
+              <section role="region" class="pull-left" id="sliderarea">
+                <div role="slider" aria-valuemin="10" aria-valuenow="10" aria-valuemax="100" aria-valuetext="slider description">
+                  <div>
+                    <progress min="10" value="80" max="100" id="newProgressBar"></progress>
+                    <button id="handler">handler</button>
+                  </div>
+                </div>
+              </section>
+
+              <!-- <input type="range" name="points" min="1" max="10" id="brushSizeNew"> -->
+
+              <!-- <div id="brushStrokeSize" class="slider slider-horizontal" style="width: 160px;"></div> -->
+              <p class="pull-right">
+                <button class="btn btn-xs" id="roundbrush"><img src="images/btns/btn-brush-round.png"></button>
+                <button class="btn btn-xs"id="squarebrush"><img src="images/btns/btn-brush-square.png"></button>
+              </p>
+
+              <!-- <p>Brush softness</p> -->
+              <!-- <div id="brushSoftness" class="slider slider-horizontal" style="width: 140px;"></div> -->
+
+              <!-- <p>Opacity</p>
+              <div id="brushOpacity" class="slider slider-horizontal" style="width: 140px;"></div> -->
+            </div>
+        </div>
+
+        <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                  <img src="" id="theimage">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+
+      </footer>
+
+  </div> <!-- end container -->
+</section>
+  <script type="text/javascript" src="js/js/draw.js"></script>
+  <script type="text/javascript" src="js/js/toolbar.js"></script>
+  <!-- <script type="text/javascript" src="js/bootstrap-slider.js"></script> -->
+  <script type="text/javascript" src="js/js/modernizr.js"></script>
+  <!-- <script type="text/javascript" src="js/jquery.hammer.min.js"></script> -->
+  <script type="text/javascript" src="js/js/modal.js"></script>
+  <script type="text/javascript" defer src="js/js/seekbars.js"></script>
+
+  <!--
+      Loosely based on fxosstub: https://github.com/Jaxo/fxosstub
+  -->
+
+</body>
 </html>

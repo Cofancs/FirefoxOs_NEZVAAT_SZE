@@ -9,7 +9,7 @@
         <link href="css/style/headers.css" rel="stylesheet" type="text/css">
         <link href="css/style/drawer.css" rel="stylesheet" type="text/css">
         <link href="css/style/lists.css" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="js/app.js" defer></script>
+
         <link rel="prefetch" type="application/l10n" href="data/locales.ini" />
         <script type="text/javascript" src="js/libs/l10n.js" defer></script>
     </head>
@@ -23,22 +23,15 @@
   </header>
   <nav>
     <ul>
-      <li><a href="poems.html">Poems</a></li>
-      <li><a href="drawings.html">Drawings</a></li>
-      <li><a href="recordings.html">Recordings</a></li>
+      <li><a href="index.html">Poems</a></li>
+      <li><a href="newDrawing.html">Drawings</a></li>
+      <li><a href="newRecording.html">Recordings</a></li>
       <li><a href="exit.html">Exit</a></li>
     </ul>
-    <!--
-    <h2>Subtitle</h2>
-    <ul>
-      <li><a href="#content">label</a></li>
-      <li><a href="#content">label</a></li>
-      <li><a href="#content">label larger label than the </a></li>
-      <li><a href="#content">label</a></li>
-    </ul>
-    -->
+   
   </nav>
 </section>
+       
 <section id="drawer" role="region">
   <header>
     <a href="#content"><span class="icon icon-menu">hide sidebar</span></a>
@@ -48,22 +41,18 @@
     <div role="main">
         <div style="colors:#000000;background-color: #fff;overflow: scroll;height: 90%;">
             <section data-type="list">
-                <header id="base-maingroups">Recently watched poems</header> 
+                <header id="base-maingroups">Poems:</header> 
                 <ul id="poems">
-            <li><a href="poemContent.html">Arany János <br/><font class="subtitle">Waelsi bárdok</font></a></li>
-            <li><a href="poemContent.html">Arany János <br/><font class="subtitle">Waelsi bárdok</font></a></li>
-            <li><a href="poemContent.html">Arany János <br/><font class="subtitle">Waelsi bárdok</font></a></li>
-            <li><a href="poemContent.html">Arany János <br/><font class="subtitle">Waelsi bárdok</font></a></li>
-            <li><a href="poemContent.html">Arany János <br/><font class="subtitle">Waelsi bárdok</font></a></li>
-            <li><a href="poemContent.html">Arany János <br/><font class="subtitle">Waelsi bárdok</font></a></li>
-            <li><a href="poemContent.html">Arany János <br/><font class="subtitle">Waelsi bárdok</font></a></li>
-            <li><a href="poemContent.html">Arany János <br/><font class="subtitle">Waelsi bárdok</font></a></li>
-            <li><a href="poemContent.html">Arany János <br/><font class="subtitle">Waelsi bárdok</font></a></li>
-            </ul>
+                       <li><a href="poemContent.html#region-walesi">Arany János <br/><font class="subtitle">Waelsi bárdok</font></a></li>
+                       <li><a href="poemContent.html#region-anyam">Petőfi Sándor <br/><font class="subtitle">Anyám tyúkja</font></a></li>
+                        <li><a href="poemContent.html#region-tiszai">Juhász Gyula <br/><font class="subtitle">Tiszai Csönd</font></a></li>
+                </ul>
             </section>
       
        
     </div>
 </section>
+         <script type="text/javascript" src="js/indexedDB.js" defer></script>
+         <!--<script type="text/javascript" src="js/app.js" defer></script>-->
     </body>
 </html>

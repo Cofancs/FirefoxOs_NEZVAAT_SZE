@@ -60,6 +60,7 @@ section{
    display:         flex;
    -webkit-flex-flow: row;
            flex-flow: row;
+           text-align: center;
    }
  
   #main > article {
@@ -125,4 +126,7 @@ section{
    #main > nav, #main > aside, header, footer {
     min-height: 50px;
     max-height: 50px;
+   }
+   #main > section {
+       text-align: center;
    }
