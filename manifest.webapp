@@ -34,8 +34,7 @@
   "locales": {
     "hu": {
       "name": "Memoriter",
-      "description": "Vers tanulást segítő alkalmazás",
-      "permissions": {}
+      "description": "Vers tanulást segítő alkalmazás"
     }
   },
   "default_locale": "en"

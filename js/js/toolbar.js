@@ -6,10 +6,6 @@
       //$("#intro-screen").css("z-index","-9999");
     })
 
-
-
-
-
     var newBrushOpacity = 1; // change this value on the slider
     var brushStrokeSize = 1;
 

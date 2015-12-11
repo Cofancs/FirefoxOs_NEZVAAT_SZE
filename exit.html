@@ -9,20 +9,19 @@
     </head>
     <body>
         <div>
-            <form role="dialog" data-type="confirm" action="index.html">
+            <form role="dialog" data-type="confirm" action="poems.html" onsubmit="return false;">
                 <section>
                     <h1>Confirmation</h1>
                     <p>Are you sure you want to quit?</p>
                 </section>
                 <menu>
-                    <button id= "yes_button" class="danger" onclick="window.close();return false;">Yes</button>
-                    <button id="no_button" class="recommend" onclick="window.location.href='index.html'">No</button>
-                    
+                    <button id= "yes_button" class="danger">Yes</button>
+                    <button id="no_button" class="recommend">No</button>
                 </menu>
             </form>
-
         </div>
-        
-       
+        <script type="text/javascript" src="js/exit.js" ></script>
     </body>
+
+		
 </html>
